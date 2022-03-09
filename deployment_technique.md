@@ -1,4 +1,4 @@
-#BLUE-GREEN Deployment
+# BLUE-GREEN Deployment
 
 Blue-green deployment is a technique that reduces downtime and risk by running two identical production environments called Blue and Green.
 At any time, only one of the environments is live, with the live environment serving all production traffic. For this example, Blue is currently live and Green is idle.
@@ -9,7 +9,7 @@ This technique can eliminate downtime due to app deployment. In addition, blue-g
 
 If your app uses a relational database, blue-green deployment can lead to discrepancies between your Green and Blue databases during an update. To maximize data integrity, configure a single database for backward and forward compatibility.
 
-CANARY Deployment
+# CANARY Deployment
 
 Canary deployment is like blue-green, except it’s more risk-averse. Instead of switching from blue to green in one step, you use a phased approach.
 
@@ -19,11 +19,11 @@ The main challenge of canary deployment is to devise a way to route some users t
 
 Consider a way to route new users by exploring several techniques:
 
-	* Exposing internal users to the canary deployment before allowing external user access;
+	- `Exposing internal users to the canary deployment before allowing external user access;`
 
-	* Basing routing on the source IP range;
+	- `Basing routing on the source IP range;`
 
-	* Releasing the application in specific geographic regions;
+	- `Releasing the application in specific geographic regions;`
 
-	* Using an application logic to unlock new features to specific users and groups. This logic is removed when the application goes 
-	  live for the rest of the users.
+	- `Using an application logic to unlock new features to specific users and groups. This logic is removed when the application goes 
+	  live for the rest of the users.`
