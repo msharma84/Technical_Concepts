@@ -18,12 +18,12 @@ Kafka is fast, reliable, scalable, durable, fault-tolerant and distributed by de
 
 **Topic** <br><div>
  * a particular stream of data <br>
-	- * similar to a table in a database (without any constraints) <br>
-	- * you can have as many as topic you want <br>
-	- * a topic is identified by it's name <br>
-	- * topics can splits in partitions <br>
-	- * each partitions is ordered <br>
-	- * each message within a partition gets an incremental id, called an offset <br> </div>
+ * similar to a table in a database (without any constraints) <br>
+ * you can have as many as topic you want <br>
+ * a topic is identified by it's name <br>
+ * topics can splits in partitions <br>
+ * each partitions is ordered <br>
+ * each message within a partition gets an incremental id, called an offset <br> </div>
 
  **Broker** <br>
 	* a kafka cluster is composed of multiple brokers <br>
