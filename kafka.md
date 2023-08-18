@@ -66,8 +66,13 @@ Kafka is fast, reliable, scalable, durable, fault-tolerant and distributed by de
 
 ## KAFKA Commands
 -------------------
-Start Zookeeper <br><br>
-<code> zookeeper-server-start.bat ..\..\config\zookeeper.properties</code>
+Start Zookeeper <br>
+``` zookeeper-server-start.bat ..\..\config\zookeeper.properties
+```
 
-Start Kafka Server<br><br>
+Start Kafka Server<br>
 <code>kafka-server-start.bat ..\..\config\server.properties</code>
+
+Create Kafka Topic
+	
+	kafka-topics.bat --create --zookeeper localhost:2181 --replication-factor 1 --partitions 4 --topic test-topic
