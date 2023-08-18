@@ -14,22 +14,22 @@ KAFKA TERMINOLOGIES
 **Partition** - Topics are broken upto into ordered commit logs called partitions
 			Partition is where the messages lives inside the topic. <br>
 **Producer** - A producer can be any application who can publish message to a topic.<br>
-**Consumer** - A consumer can be any application that subscribes to a topic and consumes the message. <br><br>
+**Consumer** - A consumer can be any application that subscribes to a topic and consumes the message. <br>
 
 **Topic**
-	- * a particular stream of data
-	- * similar to a table in a database (without any constraints)
-	- * you can have as many as topic you want
-	- * a topic is identified by it's name
-	- * topics can splits in partitions
-	- * each partitions is ordered
-	- * each message within a partition gets an incremental id, called an offset
+	 * a particular stream of data <br>
+	 * similar to a table in a database (without any constraints) <br>
+	 * you can have as many as topic you want <br>
+	 * a topic is identified by it's name <br>
+	 * topics can splits in partitions <br>
+	 * each partitions is ordered <br>
+	 * each message within a partition gets an incremental id, called an offset <br>
 
- Broker
-	* a kafka cluster is composed of multiple brokers
-	* each broker is identified with it's ID (integer)
-	* each broker contains certain topics partitions
-	* after connecting to any broker (called bootstrap broker) you can connect to entire cluster
+ **Broker**
+	* a kafka cluster is composed of multiple brokers <br>
+	* each broker is identified with it's ID (integer) <br>
+	* each broker contains certain topics partitions <br>
+	* after connecting to any broker (called bootstrap broker) you can connect to entire cluster <br>
 
  Topic replication factor
 	* topic should have replication factor > 1 
