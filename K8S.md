@@ -21,3 +21,18 @@ Various advantages of k8s:
 13. Portability / Modularity
 14. Provides additional capabilities
 
+Disadvantage of k8s:
+
+1.	Some degree of complexity of setup
+2.	Network latency and limitations
+
+## What is a cluster?
+
+A cluster consists of at least one master cluster and multiple worker machines called nodes. When the programs or applications are deployed onto a cluster, it intelligently handles distributing work to the individual nodes via master. A cluster is a "master-nodes" architecture.
+
+Master components are also know as Decision Makers, it's consists of :
+
+1. kube-apiserver : it process / validated the json or yaml file that contains the information such as name, 		label and specification about the entity
+2. kube-scheduler : this is the head of all the scheduling task, if any pods are unavailable then this component 	will ensure it avaialable at another pod
+3. kube-controller-manager : a controller watches the state of the cluster through kube-apiserver and makes 		changes to get the desired state. It's a continuously watching deamon process which manages all the system 		example - Node Controller, Replication Controller, Endpoints Controller etc.
+4. etcd : Storage for the k8s cluster ( Key Value pair format), only kube-apiserver will be able to communicate 	with etcd
