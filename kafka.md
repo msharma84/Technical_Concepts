@@ -50,16 +50,16 @@ Kafka is fast, reliable, scalable, durable, fault-tolerant and distributed by de
  * If a key is sent, then the producer has the guarantee that all the messages for that key go to the same partition. <br>
  * This enables to guarantee ordering of the specific key. <br></div>
 
-**Consumers** <br>
-   	* Consumers read data from a topic <br>
-   	* They only have to specify the topic name and one broker to connect to, and kafka will automatically take care of 
-       pulling the data from the right brokers. <br>
+**Consumers** <br><div>
+* Consumers read data from a topic <br>
+* They only have to specify the topic name and one broker to connect to, and kafka will automatically take care of 
+       pulling the data from the right brokers. <br></div>
 
-**Consumer Group** <br>
- 	* Consumers read data in consumer groups <br>
- 	* Each consumer within a group reads from exclusive partitions <br>
- 	* You can't have more consumers than the partitions <br>
- 	* Kafka Broker manages the consumer groups, it acts as a group co-ordinator <br>
+**Consumer Group** <br><div>
+ * Consumers read data in consumer groups <br>
+ * Each consumer within a group reads from exclusive partitions <br>
+ * You can't have more consumers than the partitions <br>
+ * Kafka Broker manages the consumer groups, it acts as a group co-ordinator <br></div>
 
- **Consumer Offset** <br>
- 	* Behave like a bookmark for the consumer to start reading the messages from the point it let off. <br>
+ **Consumer Offset** <br><div>
+  * Behave like a bookmark for the consumer to start reading the messages from the point it let off. <br></div>
