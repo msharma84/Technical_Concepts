@@ -9,12 +9,12 @@ KAFKA TERMINOLOGIES
 
 **Topic** - A topic is a category or feed name to which records are published.
 		Topic is an entity in Kafka with a name. <br>
-**Zookeper** - is used for managing and coordinating Kafka Broker
-**Broker** - kafka cluster is a set of servers, each of which is called a broker
+**Zookeper** - is used for managing and coordinating Kafka Broker. <br>
+**Broker** - kafka cluster is a set of servers, each of which is called a broker. <br>
 **Partition** - Topics are broken upto into ordered commit logs called partitions
-			Partition is where the messages lives inside the topic
-**Producer** - A producer can be any application who can publish message to a topic
-**Consumer** - A consumer can be any application that subscribes to a topic and consumes the message.
+			Partition is where the messages lives inside the topic. <br>
+**Producer** - A producer can be any application who can publish message to a topic.<br>
+**Consumer** - A consumer can be any application that subscribes to a topic and consumes the message. <br><br>
 
 **Topic**
 	- * a particular stream of data
