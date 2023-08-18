@@ -21,8 +21,5 @@ Consider a way to route new users by exploring several techniques:
 
  * Exposing internal users to the canary deployment before allowing external user access;
  * Basing routing on the source IP range;
-
-	- `Releasing the application in specific geographic regions;`
-
-	- `Using an application logic to unlock new features to specific users and groups. This logic is removed when the application goes 
-	  live for the rest of the users.`
+ * Releasing the application in specific geographic regions;
+ * Using an application logic to unlock new features to specific users and groups. This logic is removed when the application goes live for the rest of the users.
