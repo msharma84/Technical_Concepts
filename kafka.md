@@ -1,5 +1,5 @@
 # APACHE KAFKA
---------------
+-------------------
 
 Apache Kafka is a distributed publish-subscribe messaging system. It was originally developed at LinkedIn and later on become part of Apache Project.
 Kafka is fast, reliable, scalable, durable, fault-tolerant and distributed by design.
@@ -63,3 +63,8 @@ Kafka is fast, reliable, scalable, durable, fault-tolerant and distributed by de
 
  **Consumer Offset** <br><div>
   * Behave like a bookmark for the consumer to start reading the messages from the point it let off. <br></div>
+
+## KAFKA Commands
+-------------------
+Start Zookeeper
+` zookeeper-server-start.bat ..\..\config\zookeeper.properties
