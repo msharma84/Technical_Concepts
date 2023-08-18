@@ -8,7 +8,7 @@ KAFKA TERMINOLOGIES
 -------------------
 
 **Topic** - A topic is a category or feed name to which records are published.
-		Topic is an entity in Kafka with a name.
+		Topic is an entity in Kafka with a name. <br>
 **Zookeper** - is used for managing and coordinating Kafka Broker
 **Broker** - kafka cluster is a set of servers, each of which is called a broker
 **Partition** - Topics are broken upto into ordered commit logs called partitions
