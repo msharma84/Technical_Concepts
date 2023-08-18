@@ -25,11 +25,11 @@ Kafka is fast, reliable, scalable, durable, fault-tolerant and distributed by de
  * each partitions is ordered <br>
  * each message within a partition gets an incremental id, called an offset <br> </div>
 
- **Broker** <br>
-	* a kafka cluster is composed of multiple brokers <br>
-	* each broker is identified with it's ID (integer) <br>
-	* each broker contains certain topics partitions <br>
-	* after connecting to any broker (called bootstrap broker) you can connect to entire cluster <br>
+ **Broker** <br><div>
+ * a kafka cluster is composed of multiple brokers <br>
+ * each broker is identified with it's ID (integer) <br>
+ * each broker contains certain topics partitions <br>
+ * after connecting to any broker (called bootstrap broker) you can connect to entire cluster <br><div>
 
  **Topic replication factor** <br>
 	* topic should have replication factor > 1 <br>
