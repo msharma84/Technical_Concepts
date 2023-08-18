@@ -1,10 +1,10 @@
-APACHE KAFKA
+# APACHE KAFKA
 --------------
 
 Apache Kafka is a distributed publish-subscribe messaging system. It was originally developed at LinkedIn and later on become part of Apache Project.
 Kafka is fast, reliable, scalable, durable, fault-tolerant and distributed by design.
 
-KAFKA TERMINOLOGIES
+## KAFKA TERMINOLOGIES
 -------------------
 
 **Topic** - A topic is a category or feed name to which records are published.
@@ -16,14 +16,14 @@ KAFKA TERMINOLOGIES
 **Producer** - A producer can be any application who can publish message to a topic.<br>
 **Consumer** - A consumer can be any application that subscribes to a topic and consumes the message. <br>
 
-**Topic** <br>
+**Topic** <br><div>
 	 * a particular stream of data <br>
 	 * similar to a table in a database (without any constraints) <br>
 	 * you can have as many as topic you want <br>
 	 * a topic is identified by it's name <br>
 	 * topics can splits in partitions <br>
 	 * each partitions is ordered <br>
-	 * each message within a partition gets an incremental id, called an offset <br>
+	 * each message within a partition gets an incremental id, called an offset <br> </div>
 
  **Broker** <br>
 	* a kafka cluster is composed of multiple brokers <br>
