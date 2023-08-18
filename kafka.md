@@ -31,26 +31,24 @@ Kafka is fast, reliable, scalable, durable, fault-tolerant and distributed by de
  * each broker contains certain topics partitions <br>
  * after connecting to any broker (called bootstrap broker) you can connect to entire cluster <br><div>
 
- **Topic replication factor** <br>
-	* topic should have replication factor > 1 <br>
-	* the way if a broker is down, another broker can serve the data <br>
+ **Topic replication factor** <br><div>
+ * topic should have replication factor > 1 <br>
+ * the way if a broker is down, another broker can serve the data <br></div>
 
- **Concept of leader for a partition** <br>
-	* at any time only 1 broker can be a leader for a given partition <br>
-	* only that leader can receive and serve data for partition <br>
-	* the other broker will synchronize the data <br>
-	* there each partition has : one leader and multiple ISR (in-sync-replica) <br>
+ **Concept of leader for a partition** <br><div>
+ * at any time only 1 broker can be a leader for a given partition <br>
+ * only that leader can receive and serve data for partition <br>
+ * the other broker will synchronize the data <br>
+ * there each partition has : one leader and multiple ISR (in-sync-replica) <br></div>
 
- **Producers** <br>
-	* Producers write data to topics. <br>
-	* They only have to specify topic name and one broker to connect to, and kafka will automatically take care of 	 
-           routing the data to the right brokers. <br>
+ **Producers** <br> <div>
+ * Producers write data to topics. <br>
+ * They only have to specify topic name and one broker to connect to, and kafka will automatically take care of 	 routing the data to the right brokers. <br></div>
 
- **Producers: Message keys** <br>
-	* Producers can choose to send a key with the message <br>
-	* If a key is sent, then the producer has the guarantee that all the messages for that key go to the same partition. 
-         <br>
-	* This enables to guarantee ordering of the specific key. <br>
+ **Producers: Message keys** <br><div>
+ * Producers can choose to send a key with the message <br>
+ * If a key is sent, then the producer has the guarantee that all the messages for that key go to the same partition. <br>
+ * This enables to guarantee ordering of the specific key. <br></div>
 
 **Consumers** <br>
    	* Consumers read data from a topic <br>
