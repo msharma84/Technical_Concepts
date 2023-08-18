@@ -60,3 +60,73 @@ A way of grouping the pods for variety of purposes, can be used for providing th
 
 Command to view all namespaces: 
 ```kubectl get pods --all-namespaces```
+
+k8s starts with three intial namespaces:
+1. default
+2. kube-system - for the object created by the kubernetes system
+3. kube-public - created automatically and is visible and readable by all the users throughout the whole cluster
+
+## What is a Label?
+
+Tag that can be attached to kubernetes object to mark them as a part of a group. An object can have multiple labels, but the keys must be unique.
+
+## What is an Annotation?
+
+Allows you to attach key-value information as metadata to an object.
+
+## What is a Replication Controller?
+
+It ensures that a specified number of pods replicas are running at any one time. It starts or terminates the pods depending on the desired state. Pods maintained by replication controller are automatically replaces if they are fail, are deleted, or terminated.
+
+1. RC starts/stops pod depending on the desired state
+2. Error correction and detection
+3. Ease of supervision and management
+4. Supervises multiple pods across multiple nodes
+
+## What is a Replica Set?
+
+Created using deployment, this is a declarative way of ensuring that a specified number of pod replica are running at any given time. It starts or terminates the pods depending on the desired state. It allows access to pods within each other inside a cluster as well as outside of it.
+
+## What is a Service?
+
+An abstraction which defines a logical set of Pods and a policy by which to access those pods. It facilitates access to the pods within the cluster or outside of it. 
+
+### Types of Services: 
+#### Cluster IP
+* With this type (default) the service can be reached only from within the cluster
+* Assign the service it's own IP address
+
+#### Node Port
+* This option is used if the service is to be accessed from outside the cluster. It exposes the service on each Node's IP at a static port (the NodePort). So the service accessed using the **<NodeIP>:<NodePort>**
+* If the type field is NodePort, the kubernetes master will allocate a port of the range specified by the **--service-node-port-range** flag (default: 30000-32767), and each Node will proxy that port ( the same number on every Node) into the service
+* Specific port number can be used in the NodePort field, and the system will allocate that port.
+
+#### Load Balancer
+* Exposes the service externally using a cloud provider's load balancer(Ex- Elastic Cloud Load Balancer of AWS).
+* Provides ExternalIP to access the service
+  
+#### External Name
+* Simply provide a DNS reference called as ExternalName
+* Does not include a selector, and doesn't include any port references either. Instead, it simply defines and external DNS entry that can be used as a service definition.
+
+## What is Service Discovery?
+
+It's a process for finding out how to connect to a service. It can discovered by
+* Environment Variables
+* Using Domain Name System
+
+## What is Deployment?
+
+A Deployment controller provides declaritive update for Pods and ReplicaSets. Once the desired state is described in the Deployment object, and the Deployment controller changes the actual state to the desired state at a controlled rate.
+
+## What is a Volume?
+
+A storage that is accessible to the containers in a Pod. A pod can specify a set of shared storage volumes.
+
+## What is a Container Probes?
+
+A Probe is a diagnostic performed periodically by the kubelet on a container. This helps k8s identify what is going on the pods and their containers. There are two types of container probes:
+1. **livelinessProbe**	:	Indicates whether the container running
+2. **readinessProbe**	:	Indicate whether the container is ready to serve the request
+
+   
