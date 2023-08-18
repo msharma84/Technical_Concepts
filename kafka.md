@@ -78,3 +78,8 @@ kafka-server-start.bat ..\..\config\server.properties
 ```
 kafka-topics.bat --create --zookeeper localhost:2181 --replication-factor 1 --partitions 4 --topic test-topic
 ```
+### Start producing topic through producer console
+#### Without Key :
+```
+kafka-console-consumer.bat --bootstrap-server localhost:9092 --topic test-topic --from-beginning
+```
