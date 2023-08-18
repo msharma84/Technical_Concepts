@@ -1,7 +1,7 @@
 # APACHE KAFKA
 -------------------
 
-Apache Kafka is a distributed publish-subscribe messaging system. It was originally developed at LinkedIn and later on become part of Apache Project.
+Apache Kafka is a distributed publish-subscribe messaging system. It was originally developed at LinkedIn and later on become part of Apache Project.<br>
 Kafka is fast, reliable, scalable, durable, fault-tolerant and distributed by design.
 
 ## KAFKA TERMINOLOGIES
