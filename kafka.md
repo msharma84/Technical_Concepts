@@ -83,3 +83,38 @@ kafka-topics.bat --create --zookeeper localhost:2181 --replication-factor 1 --pa
 ```
 kafka-console-consumer.bat --bootstrap-server localhost:9092 --topic test-topic --from-beginning
 ```
+#### With Key :
+```
+kafka-console-consumer.bat --bootstrap-server localhost:9092 --topic test-topic --from-beginning -property "key.separator= - " --property "print.key=true"
+```
+### List of all broker in the cluster
+```
+kafka-console-consumer.bat --bootstrap-server localhost:9092,localhost:9093,localhost:9094 --topic library-events --from-beginning
+```
+### Publish to the Kafka Topic via Console
+```
+kafka-console-producer.bat --broker-list localhost:9092 --topic test-topic
+```
+### Get Details of Topic
+```
+kafka-topics.bat --zookeeper localhost:2181 --topic test-topic --describe
+```
+### Delete topic
+```
+kafka-topics.bat --zookeeper localhost:2181 --delete --topic test-topic
+```
+### Get details of the consumer offset
+```
+kafka-topics.bat --zookeeper localhost:2181 --list
+kafka-topics.bat --describe --zookeeper localhost:2181 --topic test-topic-replicated
+```
+### Get details of the consumer group
+```
+kafka-consumer-groups.bat --bootstrap-server localhost:9092 --list
+```
+### Stop Zookeeper and Kafka
+```
+zookeeper-server-stop.bat
+kafka-server-stop.bat
+```
+
