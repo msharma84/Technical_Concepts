@@ -7,23 +7,23 @@ Kafka is fast, reliable, scalable, durable, fault-tolerant and distributed by de
 KAFKA TERMINOLOGIES
 -------------------
 
-Topic - A topic is a category or feed name to which records are published.
+**Topic** - A topic is a category or feed name to which records are published.
 		Topic is an entity in Kafka with a name.
-Zookeper - is used for managing and coordinating Kafka Broker
-Broker - kafka cluster is a set of servers, each of which is called a broker
-Partition - Topics are broken upto into ordered commit logs called partitions
+**Zookeper** - is used for managing and coordinating Kafka Broker
+**Broker** - kafka cluster is a set of servers, each of which is called a broker
+**Partition** - Topics are broken upto into ordered commit logs called partitions
 			Partition is where the messages lives inside the topic
-Producer - A producer can be any application who can publish message to a topic
-Consumer - A consumer can be any application that subscribes to a topic and consumes the message.
+**Producer** - A producer can be any application who can publish message to a topic
+**Consumer** - A consumer can be any application that subscribes to a topic and consumes the message.
 
-Topic
-	* a particular stream of data
-	* similar to a table in a database (without any constraints)
-	* you can have as many as topic you want
-	* a topic is identified by it's name
-	* topics can splits in partitions
-	* each partitions is ordered
-	* each message within a partition gets an incremental id, called an offset
+**Topic**
+	- * a particular stream of data
+	- * similar to a table in a database (without any constraints)
+	- * you can have as many as topic you want
+	- * a topic is identified by it's name
+	- * topics can splits in partitions
+	- * each partitions is ordered
+	- * each message within a partition gets an incremental id, called an offset
 
  Broker
 	* a kafka cluster is composed of multiple brokers
