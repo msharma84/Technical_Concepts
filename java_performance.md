@@ -20,3 +20,20 @@ For long-running applications such as server-side enterprise Java applications, 
 
 ## Tiered compilation
 Tiered compilation combines client-side and server-side compilation. Tiered compilation takes advantage of both client and server compiler advantages in your JVM. The client compiler is most active during application startup and handles optimizations triggered by lower performance-counter thresholds. The client-side compiler also inserts performance counters and prepares instruction sets for more advanced optimizations, which will be addressed at a later stage by the server-side compiler. Tiered compilation is a very resource-efficient way of profiling because the compiler is able to collect data during low-impact compiler activity, which can be used for more advanced optimizations later. This approach also yields more information than you'll get from using interpreted code profile counters alone.
+
+## Code optimization
+When a method is chosen for compilation, the JVM feeds its bytecode to the Just-In-Time compiler (JIT). The JIT needs to understand the semantics and syntax of the bytecode before it can compile the method correctly. To help the JIT compiler analyze the method, its bytecode are first reformulated in an internal representation called trees, which resembles machine code more closely than bytecode. Analysis and optimizations are then performed on the trees of the method. At the end, the trees are translated into native code. The JIT compiler can use more than one compilation thread to perform JIT compilation tasks. Using multiple threads can potentially help Java applications to start faster. In practice, multiple JIT compilation threads show performance improvements only where there are unused processing cores in the system. The default number of compilation threads is identified by the JVM, and is dependent on the system configuration. If the resulting
+number of threads is not optimum, you can override the JVM decision by using the XcompilationThreads option. For information on using this option, see JIT and AOT command-line options
+
+## The compilation consists of the following phases:
+
+### Inlining
+Inlining is the process by which the trees of smaller methods are merged, or "inlined", into the trees of their callers. This speeds up frequently executed method calls.
+### Local optimizations
+Local optimizations analyze and improve a small section of the code at a time. Many local optimizations implement tried and tested techniques used in classic static compilers.
+### Control flow optimizations
+Control flow optimizations analyze the flow of control inside a method (or specific sections of it) and rearrange code paths to improve their efficiency.
+### Global optimizations
+Global optimizations work on the entire method at once. They are more "expensive", requiring larger amounts of compilation time, but can provide a great increase in performance.
+### Native code generation
+Native code generation processes vary, depending on the platform architecture. Generally, during this phase of the compilation, the trees of a method are translated into machine code instructions; some small optimizations are performed according to architecture characteristics.
