@@ -64,6 +64,44 @@ Kafka is fast, reliable, scalable, durable, fault-tolerant and distributed by de
  **Consumer Offset** <br><div>
   * Behave like a bookmark for the consumer to start reading the messages from the point it let off. <br></div>
 
+## Why is Kafka so fast?
+
+Kafka is known for its high performance and speed due to several reasons:
+
+The two most important reasons are its low latency message delivery through **Sequential I/O** and **Zero Copy Principle**.
+
+### Sequential IO :
+
+Kafka relies heavily on the filesystem for storing and caching messages. The general perception is that "disks are slow, "meaning high seek time. Imagine if we can avoid seeking time. We can achieve low latency as low as RAM here. Kafka does this through Sequential I/O. Kafka efficiently uses log, an append-only, totally ordered data structure.
+
+Traditional Data Transfer :
+
+To read a file from a disk, then send it over the network, a traditional data transfer would require four context switches between user and kernel modes, making the data copied four times.
+
+1) The File. read() call makes the context switch from user mode to kernel mode, and the data copy is performed by the direct memory access (DMA) engine, which reads the file content from the disk and stores it into a kernel address space buffer (OS buffer);
+
+2) Data is copied from the kernel space buffer into the user buffer(Application buffer), making the File.read() call return and the context to switch back to user mode
+
+3) The Socket.send() call makes the context switch to kernel mode, and the third data copy is performed from the user buffer(application buffer) to the kernel buffer(socket Buffer) again
+
+4) Finally, the DMA engine performs a fourth copy of the data, passing it from the kernel buffer (socket buffer) to the network interface controller (NIC) buffer to be sent over the network.
+
+If the requested data is larger than the kernel buffer size, there will be even more copies between kernel and user spaces. Zero-copy optimisation reduces these redundant data copies.
+
+### Zero Copy Principle :
+
+A zero-copy optimisation consists of removing the second and third data copies, making the data transferred directly from the OS buffer to the nic buffer. Kafka uses this zero-copy principle by requesting the kernel to move the data to nic rather than via the application. Zero Copy is a shortcut to save multiple data copies between the application and kernel contexts. This approach brings down the time approximately 65%.
+
+### What else?
+Kafka uses many other techniques apart from the ones mentioned above to make systems much faster and more efficient:
+
+### Message Compression: 
+
+Kafka allows for message compression, which reduces messages' size and enables faster data transmission and processing.
+Message Batching: Kafka can batch messages together, which reduces the overhead of individual message processing and improves throughput.
+
+Overall, Kafka's speed results from its optimised architecture(sequential io, append-only log, Zero Copy), compression, batching, in-memory storage.
+
 ## KAFKA Commands
 -------------------
 ### Start Zookeeper
