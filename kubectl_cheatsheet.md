@@ -86,3 +86,18 @@ Get all namespace
 ```
 kubectl get all -n <namespace>
 ```
+
+## Pod
+
+- Get a particular pod of a particular namespace
+```
+kubectl get pods -n <namespace>
+kubectl get pods -o wide -n <namespace>
+kubectl describe pods <pod-name> -n <namespace>
+```
+
+- Get all pod inside a cluster
+```
+kubeclt get pods -A
+```
+
