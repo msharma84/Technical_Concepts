@@ -82,7 +82,7 @@ kubectl config set-context $(kubectl config current-context) --namespace=my-name
 kubectl get namespace
 ```
 
-Get all namespace
+- Get all namespace
 ```
 kubectl get all -n <namespace>
 ```
@@ -109,6 +109,17 @@ kubectl exec -it <pod name> --container <container name> -n <namespace> -- /bin/
 - Identify the containers within your pods by running
 ```
 kubectl get pods <pod name> -n <namespace> -o jsonpath='{.spec.containers[*].name}'
+```
+
+- Check Image used in a pod
+```
+kubectl get pod <pod name> -n <namespace> -o yaml | grep image
+kubectl get pod <pod name> -n <namespace> -o yaml | findStr image
+```
+
+- Download file from a particular pod
+```
+kubectl cp --namespace <namespace>  <pod-name>:<path-including-filename>  <filename-on-local-disk>
 ```
 
 ## Deployment
