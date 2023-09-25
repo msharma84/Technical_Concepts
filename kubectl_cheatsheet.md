@@ -48,3 +48,41 @@ kubectl config view
 ```
 kubectl config set-context $(kubectl config current-context) --namespace=<namespace>
 ```
+
+## Get Commands
+
+```
+kubectl get all
+kubectl get namespaces
+kubectl get configmaps
+kubectl get nodes
+kubectl get pods
+kubectl get rs
+kubectl get svc kuard
+kubectl get endpoints kuard
+```
+
+Additional switches that can be added to the above commands:
+
+- `-o wide` - Show more information.
+- `--watch` or `-w` - watch for changes.
+
+## Namespaces
+
+- `--namespace` - Get a resource for a specific namespace.
+
+You can set the default namespace for the current context like so:
+
+```
+kubectl config set-context $(kubectl config current-context) --namespace=my-namespace
+```
+
+- Get namespace
+```
+kubectl get namespace
+```
+
+Get all namespace
+```
+kubectl get all -n <namespace>
+```
