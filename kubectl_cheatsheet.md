@@ -101,3 +101,45 @@ kubectl describe pods <pod-name> -n <namespace>
 kubeclt get pods -A
 ```
 
+## Deployment
+
+- Get deployment in a namespace
+```
+kubectl get deployment -n <namespace>
+```
+
+- Get information about a deployment
+```
+kubectl describe deployment <deployment-name> -n <namespace>
+```
+
+## Service
+
+- Get service in a namespace
+```
+kubectl get service -n <namespace>
+```
+
+## Events
+
+- Get events in a namespace
+```
+kubectl get events -n <namespace>
+kubectl get events -n <namespace> -ojson
+```
+- Get events of all pod
+```
+kubectl get events -n <namespace> --field-selector involvedObject.kind=Pod
+```
+
+## Config Maps
+
+- Get configmap in a namespace
+```
+kubectl get configmap -n <namespace>
+```
+
+- Get details of a particular configmap
+```
+kubectl describe configmap <config-map> -n <namespace>
+```
