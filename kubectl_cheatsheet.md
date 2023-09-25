@@ -122,6 +122,10 @@ kubectl get pod <pod name> -n <namespace> -o yaml | findStr image
 kubectl cp --namespace <namespace>  <pod-name>:<path-including-filename>  <filename-on-local-disk>
 ```
 
+- Get memory and cpu utilization
+```
+kubectl top pods <pod-name>  -n <namespace>
+```
 ## Deployment
 
 - Get deployment in a namespace
