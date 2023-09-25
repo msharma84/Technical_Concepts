@@ -101,6 +101,16 @@ kubectl describe pods <pod-name> -n <namespace>
 kubeclt get pods -A
 ```
 
+- Access the shell of a particular pod
+```
+kubectl exec -it <pod name> --container <container name> -n <namespace> -- /bin/sh
+```
+
+- Identify the containers within your pods by running
+```
+kubectl get pods <pod name> -n <namespace> -o jsonpath='{.spec.containers[*].name}'
+```
+
 ## Deployment
 
 - Get deployment in a namespace
