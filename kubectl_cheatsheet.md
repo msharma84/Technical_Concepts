@@ -15,6 +15,11 @@ kubectl cluster-info
   Kubernetes master is running at https://172.17.0.58:8443
 ```
 
+- Check information of current cluster
+```
+kubectl config view --minify
+```
+
 ## Contexts
 
 A context is a cluster, namespace and user.
@@ -33,6 +38,13 @@ kubectl config current-context
 ```
 kubectl config use-context <context-name> or <arn>
 ```
+
+- Check information of all config
+- ```
+  kubectl config view
+  ```
+
+
 
 - Set default namesapce
 ```
