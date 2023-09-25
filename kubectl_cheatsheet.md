@@ -40,11 +40,9 @@ kubectl config use-context <context-name> or <arn>
 ```
 
 - Check information of all config
-- ```
-  kubectl config view
-  ```
-
-
+```
+kubectl config view
+```
 
 - Set default namesapce
 ```
