@@ -24,8 +24,8 @@ Stream source
      Stream can be created from Collections, Lists, Sets,Arrays,line of files
 
 Stream operations are either intermediate or terminal
-    **intermediate operations** - such as filter, map or sort return a stream so we can chain multiple intermediate operations.
+1. **intermediate operations** - such as filter, map or sort return a stream so we can chain multiple intermediate operations.
             anyMatch(), distinct(), filter(), findfirst(), flatMap(), map(), skip(), sorted()
-    **terminal operations** - such as forEach, collect or reduce are either void or return a non-stream result. Only one terminal operation has been allowed.
+2. **terminal operations** - such as forEach, collect or reduce are either void or return a non-stream result. Only one terminal operation has been allowed.
         Collect saves the elements into a Collection, other operations reduces the stream into a single summary element.
         count(), max(), min(), reduce(), summaryStatistics
