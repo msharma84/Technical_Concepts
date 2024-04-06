@@ -1,9 +1,8 @@
 # Functional Programming in Java
 
-Advantage   
-:   no boilerplate code in java
-
-:   move from declarative programming to imperative programming
+Advantage : 
+1.   no boilerplate code in java
+2.   move from declarative programming to imperative programming
 
 Why Lamdas ?
 
