@@ -47,7 +47,7 @@ Predicate Functional Interface - This functional interface used for conditional 
     stream.forEach(System.out::println);
    ```
     
-2. How do you convert a stream back to a list?
+- How do you convert a stream back to a list?
    
    ```
     Stream<Integer> stream = Stream.of(5,4,3,2,1);
@@ -55,7 +55,7 @@ Predicate Functional Interface - This functional interface used for conditional 
     integerList.forEach(System.out::println);
    ```
    
-4. How do you find the count of elements in a stream?
+- How do you find the count of elements in a stream?
    
    ```  
     List<Integer> integerList = Arrays.asList(1,2,3,4);
@@ -63,7 +63,7 @@ Predicate Functional Interface - This functional interface used for conditional 
     System.out.println(count);
     ```
    
-5. How do you filter even numbers from a list using streams?
+- How do you filter even numbers from a list using streams?
    
      ```
     List<Integer> integerList = Arrays.asList(1,2,3,4,5,6,7,8,9);
@@ -74,7 +74,7 @@ Predicate Functional Interface - This functional interface used for conditional 
     evenList.forEach(System.out::println);
      ```
      
-6. How do you transform a list of strings to uppercase using streams?
+- How do you transform a list of strings to uppercase using streams?
    
     ```
     List<String> stringList = Arrays.asList("apple","banana","orange");
@@ -85,7 +85,7 @@ Predicate Functional Interface - This functional interface used for conditional 
     upperStringList.forEach(System.out::println);
      ```
     
-7. How do you sort a list of numbers using streams?
+- How do you sort a list of numbers using streams?
    
     ```
     List<Integer> integerList = Arrays.asList(4,2,7,3,5,1);
@@ -96,7 +96,7 @@ Predicate Functional Interface - This functional interface used for conditional 
     sortedList.forEach(System.out::println);
      ```
     
-8. How do you limit a stream to the first 5 elements?
+- How do you limit a stream to the first 5 elements?
    
     ```
     List<Integer> integerList = Arrays.asList(1,2,3,4,5,6,7,8,9);
@@ -106,7 +106,7 @@ Predicate Functional Interface - This functional interface used for conditional 
         .forEach(System.out::println);
      ```
     
-9. How do you skip the first 3 elements in a stream?
+- How do you skip the first 3 elements in a stream?
 
     ```
     List<Integer> integerList = Arrays.asList(1,2,3,4,5,6,7,8,9);
@@ -116,7 +116,7 @@ Predicate Functional Interface - This functional interface used for conditional 
             .forEach(System.out::println);
      ```
     
-10. How do you find the first element of a stream?
+- How do you find the first element of a stream?
 
     ```
     List<Integer> integerList = Arrays.asList(8,2,3,4,5);
@@ -124,7 +124,7 @@ Predicate Functional Interface - This functional interface used for conditional 
     firstElement.ifPresent(System.out::println);
      ```
     
-11. How do you check if all elements in a stream match a given condition?
+- How do you check if all elements in a stream match a given condition?
     
      ```
     List<Integer> integerList = Arrays.asList(2,4,6,8);
@@ -132,7 +132,7 @@ Predicate Functional Interface - This functional interface used for conditional 
     System.out.println("All Even :- "+allEven);
      ```
 
-12. How do you check if any element in a stream matches a given condition?
+- How do you check if any element in a stream matches a given condition?
     
      ```
     List<Integer> integerList = Arrays.asList(2,4,5,6,8);
@@ -140,7 +140,7 @@ Predicate Functional Interface - This functional interface used for conditional 
     System.out.println("Is Odd in Even list :- "+anyMatch);
      ```
      
-13. How do you remove duplicate elements from a list using streams?
+- How do you remove duplicate elements from a list using streams?
     
     ```
     List<Integer> integerList = Arrays.asList(1,2,3,4,1,5,2,7,8);
@@ -148,7 +148,7 @@ Predicate Functional Interface - This functional interface used for conditional 
     distinctList.forEach(System.out::println);
      ```
     
-14. How do you collect elements from a stream into a Set?
+- How do you collect elements from a stream into a Set?
     
      ```
     List<Integer> integerList = Arrays.asList(1,2,3,4,1,5,6,7,5);
@@ -156,7 +156,7 @@ Predicate Functional Interface - This functional interface used for conditional 
     integerSet.forEach(System.out::println);
      ```
      
-15. How do you create a stream from an array?
+- How do you create a stream from an array?
     
      ```
     Integer[] numberArray = {1, 2, 3, 4, 5};
@@ -164,7 +164,7 @@ Predicate Functional Interface - This functional interface used for conditional 
     integerStream.forEach(System.out::println);
      ```
      
-16. How to sort custom objects before collecting?
+- How to sort custom objects before collecting?
     
     ```
     class Person{
@@ -237,7 +237,7 @@ Predicate Functional Interface - This functional interface used for conditional 
     }
      ```
     
-16. How to get values from List containing Optional values?
+- How to get values from List containing Optional values?
     
      ```
     List<Optional<String>> listOfOptionals = Arrays.asList(
@@ -255,3 +255,5 @@ Predicate Functional Interface - This functional interface used for conditional 
             System.out.println(s);
         }
      ```
+
+## Intermediate Level
