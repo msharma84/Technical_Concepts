@@ -37,12 +37,189 @@ Supplier Functional Interface - Supplier functional interface can be used in all
 
 Predicate Functional Interface - This functional interface used for conditional check, we can use these true/false returning functions in day to day programming we should choose predicate
 
-##Basic Level
+## Basic Level
 
 1. How do you create a stream from a list of integers?
-    
+    ```
     List<Integer> integerList = Arrays.asList(1,2,3,4,5);
     Stream<Integer> stream = integerList.stream();
     stream.forEach(System.out::println);
+   ```
+2. How do you convert a stream back to a list?
 
+    Stream<Integer> stream = Stream.of(5,4,3,2,1);
+    List<Integer> integerList = stream.collect(Collectors.toList());
+    integerList.forEach(System.out::println);
 
+3. How do you find the count of elements in a stream?
+
+    List<Integer> integerList = Arrays.asList(1,2,3,4);
+    long count = integerList.stream().count();
+    System.out.println(count);
+
+4. How do you filter even numbers from a list using streams?
+
+    List<Integer> integerList = Arrays.asList(1,2,3,4,5,6,7,8,9);
+    List<Integer> evenList = integerList
+            .stream()
+            .filter(n->n%2==0)
+            .collect(Collectors.toList());
+    evenList.forEach(System.out::println);
+
+5. How do you transform a list of strings to uppercase using streams?
+    
+    List<String> stringList = Arrays.asList("apple","banana","orange");
+    List<String> upperStringList = stringList
+            .stream()
+            .map(String::toUpperCase)
+            .collect(Collectors.toList());
+    upperStringList.forEach(System.out::println);
+
+6. How do you sort a list of numbers using streams?
+    
+    List<Integer> integerList = Arrays.asList(4,2,7,3,5,1);
+    List<Integer> sortedList = integerList
+            .stream()
+            .sorted()
+            .collect(Collectors.toList());
+    sortedList.forEach(System.out::println);
+
+7. How do you limit a stream to the first 5 elements?
+    
+    List<Integer> integerList = Arrays.asList(1,2,3,4,5,6,7,8,9);
+    integerList
+        .stream()
+        .limit(5)
+        .forEach(System.out::println);
+
+8. How do you skip the first 3 elements in a stream?
+    
+    List<Integer> integerList = Arrays.asList(1,2,3,4,5,6,7,8,9);
+    integerList
+            .stream()
+            .skip(3)
+            .forEach(System.out::println);
+
+9. How do you find the first element of a stream?
+    
+    List<Integer> integerList = Arrays.asList(8,2,3,4,5);
+    Optional<Integer> firstElement = integerList.stream().findFirst();
+    firstElement.ifPresent(System.out::println);
+
+10. How do you check if all elements in a stream match a given condition?
+
+    List<Integer> integerList = Arrays.asList(2,4,6,8);
+    boolean allEven = integerList.stream().allMatch(n->n%2==0);
+    System.out.println("All Even :- "+allEven);
+
+11. How do you check if any element in a stream matches a given condition?
+
+    List<Integer> integerList = Arrays.asList(2,4,5,6,8);
+    boolean anyMatch = integerList.stream().anyMatch(n->n%2==1);
+    System.out.println("Is Odd in Even list :- "+anyMatch);
+
+12. How do you remove duplicate elements from a list using streams?
+    
+    List<Integer> integerList = Arrays.asList(1,2,3,4,1,5,2,7,8);
+    List<Integer> distinctList = integerList.stream().distinct().collect(Collectors.toList());
+    distinctList.forEach(System.out::println);
+
+13. How do you collect elements from a stream into a Set?
+
+    List<Integer> integerList = Arrays.asList(1,2,3,4,1,5,6,7,5);
+    Set<Integer> integerSet = integerList.stream().collect(Collectors.toSet());
+    integerSet.forEach(System.out::println);
+
+14. How do you create a stream from an array?
+
+    Integer[] numberArray = {1, 2, 3, 4, 5};
+    Stream<Integer> integerStream = Stream.of(numberArray);
+    integerStream.forEach(System.out::println);
+
+16. How to sort custom objects before collecting?
+    
+    class Person{
+
+    private String name;
+    private int age;
+
+    public Person(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "name='" + name + '\'' +
+                ", age=" + age +
+                '}';
+     }
+ }
+public class SortCustomObjectsExample {
+
+    public static void main(String[] args) {
+        Person p1 = new Person("Ram",17);
+        Person p2 = new Person("Shyam",19);
+        Person p3 = new Person("Manish",16);
+        Person p4 = new Person("Suresh",18);
+        List<Person> personList = new ArrayList<>();
+        personList.add(p1);
+        personList.add(p2);
+        personList.add(p3);
+        personList.add(p4);
+        /*List<Person> sortedPersonList = personList
+                .stream()
+                .filter(p-> p.getAge()>18)
+                .collect(Collectors.toList());
+        sortedPersonList.forEach(System.out::println);*/
+        /*List<Person> sortedListPerson = personList
+                .stream()
+                .sorted((objP1,objP2)->Integer.compare(objP1.getAge(),objP2.getAge()))
+                .collect(Collectors.toList());
+        sortedListPerson.forEach(System.out::println);*/
+        // Reverse Sort Order
+        /*List<Person> sortedListPerson = personList
+                .stream()
+                .sorted((objP1,objP2)->Integer.compare(objP2.getAge(),objP1.getAge()))
+                .collect(Collectors.toList());
+        sortedListPerson.forEach(System.out::println);*/
+        // Sort by Name
+        List<Person> sortedListPerson = personList
+                .stream()
+                .sorted(Comparator.comparing(Person::getName))
+                .collect(Collectors.toList());
+    }
+
+17. How to get values from List containing Optional values?
+
+    List<Optional<String>> listOfOptionals = Arrays.asList(
+            Optional.empty(),
+            Optional.of("Element 1"),
+            Optional.empty(),
+            Optional.of("Element 2"));
+        
+    List<String> filteredList = listOfOptionals.stream()
+                                    .filter(Optional::isPresent)
+                                    .map(Optional::get)
+                                    .collect(Collectors.toList());
+        
+    for(String s : filteredList) {
+            System.out.println(s);
+        }
