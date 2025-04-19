@@ -29,3 +29,20 @@ Stream operations are either intermediate or terminal
 2. **terminal operations** - such as forEach, collect or reduce are either void or return a non-stream result. Only one terminal operation has been allowed.
         Collect saves the elements into a Collection, other operations reduces the stream into a single summary element.
         count(), max(), min(), reduce(), summaryStatistics
+   
+Consumer Functional Interface - Consumer can be used in all contexts where an object needs to be consumed i.e. it takes as input, and some  
+operation to be performed on the object without returning any result.
+
+Supplier Functional Interface - Supplier functional interface can be used in all contexts where there is no input but output expected.
+
+Predicate Functional Interface - This functional interface used for conditional check, we can use these true/false returning functions in day to day programming we should choose predicate
+
+##Basic Level
+
+1. How do you create a stream from a list of integers?
+    
+    List<Integer> integerList = Arrays.asList(1,2,3,4,5);
+    Stream<Integer> stream = integerList.stream();
+    stream.forEach(System.out::println);
+
+
