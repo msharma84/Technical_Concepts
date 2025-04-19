@@ -39,7 +39,7 @@ Predicate Functional Interface - This functional interface used for conditional 
 
 ## Basic Level
 
-1. How do you create a stream from a list of integers?
+- How do you create a stream from a list of integers?
    
     ```
     List<Integer> integerList = Arrays.asList(1,2,3,4,5);
