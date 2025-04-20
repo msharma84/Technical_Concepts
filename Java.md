@@ -257,3 +257,113 @@ Predicate Functional Interface - This functional interface used for conditional 
      ```
 
 ## Intermediate Level
+
+- How do you find the sum of a list of integers using streams?
+
+  ```
+  List<Integer> list = Arrays.asList(1,2,3,4,5);
+  int count = list.stream().mapToInt(Integer::intValue).sum();
+  System.out.println(count);
+  ```
+
+- How do you find the maximum and minimum values in a stream?
+
+  ```
+  List<Integer> list = Arrays.asList(1,2,3,4,5);
+
+   Optional<Integer> max = list.stream().max(Integer::compareTo);
+   Optional<Integer> min = list.stream().min(Integer::compareTo);
+
+   max.ifPresent(System.out::println);
+   min.ifPresent(System.out::println);
+  ```
+
+- How do you find the average of numbers in a list using streams?
+
+  ```
+  List<Integer> list = Arrays.asList(1,2,3,4,5);
+  double average = list.stream().mapToInt(Integer::intValue).average().orElse(0.0);
+  System.out.println("Average - "+average);
+  ```
+
+- How do you concatenate multiple lists into a single stream?
+
+  ```
+  List<Integer> l1 = Arrays.asList(1,2);
+   List<Integer> l2 = Arrays.asList(3,4);
+   List<Integer> l3 = Arrays.asList(5,6);
+
+   Stream<Integer> concatenatedStream  = Stream.concat(l1.stream(),l2.stream());
+   concatenatedStream = Stream.concat(concatenatedStream,l3.stream());
+
+   concatenatedStream.forEach(System.out::println);
+  ```
+
+ - How do you group a list of numbers into even and odd using streams?
+
+   ```
+   List<Integer> list = Arrays.asList(1,2,3,4,5,6,7,8,9);
+   Map<Boolean,List<Integer>> evenOdd = list.stream().collect(Collectors.partitioningBy(num -> num%2==0));
+
+   List<Integer> evenList = evenOdd.get(true);
+   List<Integer> oddList = evenOdd.get(false);
+
+   System.out.println(evenList);
+   System.out.println(oddList);
+   ```
+
+ - How do you group a list of employees by department using streams?
+
+   ```
+   class Employee{
+
+    private String name;
+    private String department;
+
+    public Employee(String name, String department) {
+        this.name = name;
+        this.department = department;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getDepartment() {
+        return department;
+    }
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "name='" + name + '\'' +
+                ", department='" + department + '\'' +
+                '}';
+       }
+     }
+
+   public class GroupByDepartmentUsingStreams {
+
+    public static void main(String[] args) {
+
+        List<Employee> employeeList = new ArrayList<>();
+        employeeList.add(new Employee("Manish","IT"));
+        employeeList.add(new Employee("Ramesh","HR"));
+        employeeList.add(new Employee("Mahesh","IT"));
+        employeeList.add(new Employee("Suresh","HR"));
+
+        Map<String,List<Employee>> employeeByDepartment =  employeeList
+                .stream()
+                .collect(Collectors.groupingBy(Employee::getDepartment));
+
+       employeeByDepartment.forEach( (department, emplList) ->{
+           System.out.println("Department : "+department);
+           emplList.forEach(System.out::println);
+       });
+     }
+   }
+```
+
+
+   
+
