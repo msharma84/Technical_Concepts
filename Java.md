@@ -312,7 +312,6 @@ Predicate Functional Interface - This functional interface used for conditional 
    ```
 
  - How do you group a list of employees by department using streams
-
    ```
    class Employee{
 
@@ -405,7 +404,90 @@ Predicate Functional Interface - This functional interface used for conditional 
 
          System.out.println("Non Null List : "+nonNullList);
     ```
+ - How do you concatenate all strings in a list into a single string using streams
 
+   ```
+   List<String> words = Arrays.asList("apple","banana","orange","mango");
+   String concatenatedString = words.stream()
+                .collect(Collectors.joining(","));
+
+   System.out.println("Concatenated String : "+concatenatedString);
+   ```
+
+ - How do you find duplicate elements in a list using streams
+
+   ```
+   List<String> words = Arrays.asList("apple","banana","orange","mango","apple","orange");
+   Set<String> seen = new java.util.HashSet<>();
+   List<String> duplicateWords = words.stream()
+                .filter(word -> !seen.add(word))
+                .collect(Collectors.toList());
+   duplicateWords.forEach(System.out::println);
+   ```
+
+ - How do you get the top 3 highest numbers from a list using streams
+
+   ```
+   List<Integer> list = Arrays.asList(1,2,3,4,5,6);
+   List<Integer> topThree =  list.stream()
+                .sorted((a,b)-> b-a)
+                .limit(3)
+                .collect(Collectors.toList());
+   topThree.forEach(System.out::println);
+   ```
+
+ - How do you convert a list of strings into a map of string-length pairs
+
+   ```
+   List<String> words = Arrays.asList("apple", "banana", "orange", "grape");
+   Map<String,Integer> wordLengthMap = words.stream()
+                .collect(Collectors.toMap(word -> word, word -> word.length()));
+   wordLengthMap.forEach((word, length) -> System.out.println(word +" : "+length));
+   ```
+
+- How do you find the longest word in a list using streams
+  
+  ```
+  List<String> words = Arrays.asList("apple","banana","orange","mango","pineapple");
+   Optional<String> longest =  words.stream()
+                .max(Comparator.comparingInt(String::length));
+   longest.ifPresent(word -> System.out.println("Longest Word : "+word));
+  ```
+
+- How do you merge two maps using streams
+  
+  ```
+   Map<String,Integer> map1 = new HashMap<>();
+   map1.put("apple",1);
+   map1.put("banana",2);
+
+   Map<String,Integer> map2 = new HashMap<>();
+   map2.put("orange",3);
+   map2.put("mango",4);
+
+   Map<String,Integer> mergedMap = Stream
+                .concat(map1.entrySet().stream(),map2.entrySet().stream())
+                .collect(Collectors.toMap(
+                        Map.Entry::getKey,
+                        Map.Entry::getValue,
+                        (value1,value2) -> value1 + value2
+                ));
+
+   mergedMap.forEach((key,value) -> System.out.println(key + " : "+ value));
+  ```
+
+- How do you extract a sublist based on a condition using streams
+
+  ```
+  List<Integer> numbers = Arrays.asList(5, 12, 3, 18, 7, 10, 21);
+  List<Integer> list = numbers.stream()
+                .filter(n -> n>10)
+                .filter(n -> n%2==0)
+                .collect(Collectors.toList());
+   list.forEach(System.out::println);
+  ```
+
+## Advanced Level
 
 
  
