@@ -365,11 +365,48 @@ Predicate Functional Interface - This functional interface used for conditional 
 
 - How do you find the second highest number in a list using streams
 
- ```
+  ```
       List<Integer> list = Arrays.asList(1,2,3,4,5,6);
       Optional<Integer> second = list.stream().sorted((a, b) -> b-a).skip(1).findFirst();
       second.ifPresent(value -> System.out.println("Second : " +value));
+   ```
+
+- How do you partition a list of numbers into two groups: greater than 10 and less than 10
+
   ```
+       List<Integer> list = Arrays.asList(3,13,4,14,5,15,6,16);
+
+        Map<Boolean,List<Integer>> partitionMap = list.stream()
+                .collect(Collectors.partitioningBy(n-> n>10 ));
+
+        List<Integer> greaterThan10List = partitionMap.get(true);
+        List<Integer> lessThan10List = partitionMap.get(false);
+
+        System.out.println("Greater Than 10 :- "+greaterThan10List);
+        System.out.println("Less Than 10 :- "+lessThan10List);
+  ```
+
+ - How do you count occurrences of each word in a list using streams
+
+   ```
+        List<String> words = Arrays.asList("apple","banana","orange","mango","apple","orange");
+        Map<String,Long> wordCount =  words.stream()
+                .collect(Collectors.groupingBy(word -> word,Collectors.counting()));
+        wordCount.forEach((word,count) -> System.out.println(word + " : " +count));
+   ```
+
+ - How do you remove null values from a list using streams
+
+    ```
+         List<String> words = Arrays.asList("apple","banana",null,"mango",null,"orange");
+         List<String> nonNullList =  words.stream()
+                .filter(word -> word != null)
+                .collect(Collectors.toList());
+
+         System.out.println("Non Null List : "+nonNullList);
+    ```
+
+
 
  
 
