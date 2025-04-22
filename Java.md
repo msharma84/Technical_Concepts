@@ -624,7 +624,23 @@ Predicate Functional Interface - This functional interface used for conditional 
      }
    ```
 
- -   
+ -   How do you find the most frequently occurring element in a list using streams
+
+   ```
+     List<String> list = Arrays.asList("apple","banana","orange","apple","orange","mango");
+     Optional<Map.Entry<String, Long>> frequency = list.stream()
+                .collect(Collectors.groupingBy(e -> e,Collectors.counting()))
+                .entrySet()
+                .stream()
+                .max(Map.Entry.comparingByValue());
+
+     frequency.ifPresent(entry ->{
+            System.out.println("Most frequent element : "+entry.getKey() + " with frequency "+entry.getValue());
+        });
+   ```
+
+ - 
+
    
    
 
