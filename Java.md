@@ -2,7 +2,7 @@
 
 Advantage : 
 1.   no boilerplate code in java
-2.   move from declarative programming to imperative programming
+2.   move from declarative programming to imperative programming (program is structured as a sequence of instructions)
 
 Why Lamdas ?
 
