@@ -24,12 +24,12 @@ Stream source
      Stream can be created from Collections, Lists, Sets,Arrays,line of files
 
 Stream operations are either intermediate or terminal
-1. **intermediate operations** - such as filter, map or sort return a stream so we can chain multiple intermediate operations.
+1. **intermediate operations** - such as filter, map or sort return a stream so we can chain multiple intermediate operations. It can also transfer one stream to another       stream. They can't be executed until a terminal operation is invoked.
             anyMatch(), distinct(), filter(), findfirst(), flatMap(), map(), skip(), sorted()
 2. **terminal operations** - such as forEach, collect or reduce are either void or return a non-stream result. Only one terminal operation has been allowed.
         Collect saves the elements into a Collection, other operations reduces the stream into a single summary element.
         count(), max(), min(), reduce(), summaryStatistics
-   
+
 Consumer Functional Interface - Consumer can be used in all contexts where an object needs to be consumed i.e. it takes as input, and some  
 operation to be performed on the object without returning any result.
 
