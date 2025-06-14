@@ -47,6 +47,14 @@ Predicate Functional Interface - This functional interface used for conditional 
     stream.forEach(System.out::println);
    ```
     
+- Find the longest String in a list
+
+  ```
+  List<String> fruits1 = List.of("apple", "pineapple", "mango", "guava", "orange", "banana");
+  Optional<String> longestString = fruits1.stream().max(Comparator.comparingInt(String::length));
+  System.out.println(longestString.get());
+  ```
+    
 - How do you convert a stream back to a list
    
    ```
@@ -288,7 +296,7 @@ Predicate Functional Interface - This functional interface used for conditional 
 - How do you concatenate multiple lists into a single stream
 
   ```
-  List<Integer> l1 = Arrays.asList(1,2);
+   List<Integer> l1 = Arrays.asList(1,2);
    List<Integer> l2 = Arrays.asList(3,4);
    List<Integer> l3 = Arrays.asList(5,6);
 
@@ -298,6 +306,18 @@ Predicate Functional Interface - This functional interface used for conditional 
    concatenatedStream.forEach(System.out::println);
   ```
 
+ - How to merge two sorted list into a single sorted list using java streams
+
+   ```
+   List<Integer> list1 = Arrays.asList(1, 3, 5, 7, 9);
+   List<Integer> list2 = Arrays.asList(2, 4, 6, 8, 10);
+
+   List<Integer> sortedIntegersList =
+                Stream.concat(list1.stream(),list2.stream())
+                       .sorted().collect(Collectors.toList());
+   System.out.println(sortedIntegersList);
+   ```
+   
  - How do you group a list of numbers into even and odd using streams
 
    ```
@@ -414,6 +434,15 @@ Predicate Functional Interface - This functional interface used for conditional 
    System.out.println("Concatenated String : "+concatenatedString);
    ```
 
+ - Find the intersection of two lists using Java streams
+
+   ```
+   List<Integer> list3 = Arrays.asList(1, 2, 3, 4, 5);
+   List<Integer> list4 = Arrays.asList(3, 4, 5, 6, 7);
+   List<Integer> intersection = list3.stream().filter(list4::contains).collect(Collectors.toList());
+   System.out.println(intersection);
+   ```
+   
  - How do you find duplicate elements in a list using streams
 
    ```
@@ -423,6 +452,14 @@ Predicate Functional Interface - This functional interface used for conditional 
                 .filter(word -> !seen.add(word))
                 .collect(Collectors.toList());
    duplicateWords.forEach(System.out::println);
+   ```
+
+ - How do you find the remove the duplicate from a list using streams
+
+   ```
+   List<String> words = Arrays.asList("apple","banana","orange","mango","apple","orange");
+   List<String> uniqueList = words.stream().distinct().collect(Collectors.toList());
+   System.out.println(uniqueList);
    ```
 
  - How do you get the top 3 highest numbers from a list using streams
@@ -436,6 +473,19 @@ Predicate Functional Interface - This functional interface used for conditional 
    topThree.forEach(System.out::println);
    ```
 
+ - How do you get the kth smallest element in an array using Java streams
+
+   ```
+   int[] array = {4, 2, 7, 1, 5, 3, 6};
+   int k = 5; // Find the 3rd smallest element
+   int kthSmallest = Arrays.stream(array)
+                .sorted()
+                .skip(k-1)
+                .findFirst()
+                .orElse(-1);
+
+        System.out.println(kthSmallest);
+   ```  
  - How do you convert a list of strings into a map of string-length pairs
 
    ```
@@ -487,6 +537,54 @@ Predicate Functional Interface - This functional interface used for conditional 
    list.forEach(System.out::println);
   ```
 
+- How to get Transaction based on day using streams
+
+```
+     class Transaction{
+
+         private String date;
+         private int amount;
+
+         public Transaction(String date,int amount) {
+             this.amount = amount;
+             this.date = date;
+         }
+     
+         public String getDate() {
+             return date;
+         }
+
+         public void setDate(String date) {
+             this.date = date;
+         }
+     
+         public int getAmount() {
+             return amount;
+         }
+
+         public void setAmount(int amount) {
+             this.amount = amount;
+         }
+     }
+
+     List<Transaction> transactions = Arrays.asList(
+                new Transaction("2022-01-01", 100),
+                new Transaction("2022-01-01", 200),
+                new Transaction("2022-01-02", 300),
+                new Transaction("2022-01-02", 400),
+                new Transaction("2022-01-03", 500)
+        );
+
+        Map<String,Integer> sumByDay =
+                    transactions.stream()
+                            .collect(Collectors.groupingBy(Transaction::getDate,
+                                    Collectors.summingInt(Transaction::getAmount)));
+        sumByDay.forEach((day,amount) -> {
+            System.out.println("Day :"+day +" wise Amount :"+amount);
+        });
+
+```
+  
 ## Advanced Level
 
 - How do you implement a custom collector
