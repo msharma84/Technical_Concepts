@@ -39,7 +39,7 @@ Master components are also know as Decision Makers, it's consists of :
 
 Node components it's consists of :
 
-1.	**kubelet**	: an agent that runs on each node, it communicate with the master via API, it main job is that the 		containers are running on pods
+1.	**kubelet**	: an agent that runs on each node, it communicate with the master via API, it main job is that the containers are running on pods
 2.	**Container Runtime** : responsible for downloading and running the containers
 3.	**kube-proxy** : maintains the network rules on the host
 
