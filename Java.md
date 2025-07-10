@@ -737,6 +737,18 @@ Predicate Functional Interface - This functional interface used for conditional 
         });
    ```
 
+ - Remove Vowel from a String
+
+   ```
+   String str = "Hello World";
+   String nonVowelString = str.chars()
+                .filter(ch -> !"aeiouAEIOU".contains(String.valueOf((char) ch)))
+                .mapToObj(ch -> String.valueOf((char) ch))
+                .collect(Collectors.joining());
+
+   System.out.println("Removal of vowel : "+nonVowelString);
+   ```
+
  - 
 
    
