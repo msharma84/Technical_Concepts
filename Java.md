@@ -737,7 +737,7 @@ Predicate Functional Interface - This functional interface used for conditional 
         });
    ```
 
- - Remove Vowel from a String
+- Remove Vowel from a String
 
    ```
    String str = "Hello World";
@@ -747,11 +747,9 @@ Predicate Functional Interface - This functional interface used for conditional 
                 .collect(Collectors.joining());
 
    System.out.println("Removal of vowel : "+nonVowelString);
-   ```
+   ``` 
+-
 
- - 
-
-   
    
 
 
