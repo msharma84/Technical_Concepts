@@ -171,6 +171,22 @@ Predicate Functional Interface - This functional interface used for conditional 
     integerStream.forEach(System.out::println);
      ```
      
+- Find the Product of All Elements in a List
+    
+     ```
+     List<Integer> integerList = Arrays.asList(1,2,3,4);
+     int product = integerList.stream().reduce(1, (a, b) -> a * b);
+     System.out.println(product);
+     ```
+     
+ - Find the Average of All Elements in a List
+    
+     ```
+     List<Integer> integerList = Arrays.asList(1,2,3,4);
+     double average = integerList.stream().mapToInt(Integer::intValue).average().orElse(0);
+     System.out.println(average);
+     ```
+       
 - How to sort custom objects before collecting
     
     ```
