@@ -317,6 +317,17 @@ Predicate Functional Interface - This functional interface used for conditional 
   System.out.println("Average - "+average);
   ```
 
+- Find the Sum of Digits of a Number
+
+  ```
+  int number = 123456;
+  int total = String.valueOf(number)
+                .chars()
+                .map(Character::getNumericValue)
+                .sum();
+  System.out.println("Total : "+total);
+  ```
+  
 - How do you concatenate multiple lists into a single stream
 
   ```
