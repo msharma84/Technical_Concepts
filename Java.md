@@ -178,6 +178,14 @@ Predicate Functional Interface - This functional interface used for conditional 
      int product = integerList.stream().reduce(1, (a, b) -> a * b);
      System.out.println(product);
      ```
+
+- Convert a List of Integers to Their Squares
+    
+     ```
+     List<Integer> integerList = Arrays.asList(1,2,3,4);
+     List<Integer> squaredIntegerList =  integerList.stream().map(n -> n*n).collect(Collectors.toList());
+     System.out.println(squaredIntegerList);
+     ```
      
  - Find the Average of All Elements in a List
     
