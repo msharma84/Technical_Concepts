@@ -619,6 +619,16 @@ Predicate Functional Interface - This functional interface used for conditional 
         });
 
 ```
+
+- Moved all non-zero element to left and zeros to right of a list
+
+  ```
+  List<Integer> numbers = Arrays.asList(1,0,3,2,-1,0,6,0,0,8);
+        List<Integer> movedZeros = Stream.concat(numbers.stream().filter(n -> n!= 0),
+                        numbers.stream().filter(n -> n==0))
+                        .collect(Collectors.toList());
+        System.out.println(movedZeros);
+  ```
   
 ## Advanced Level
 
