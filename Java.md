@@ -792,7 +792,34 @@ Predicate Functional Interface - This functional interface used for conditional 
 
    System.out.println("Removal of vowel : "+nonVowelString);
    ``` 
--
+-  Sort a Map according to the values
+
+  ```
+     Map<String,Integer> myMap = new HashMap<>();
+        myMap.put("A",10);
+        myMap.put("B",60);
+        myMap.put("C",20);
+        myMap.put("D",50);
+        myMap.put("E",40);
+        myMap.put("F",30);
+
+       LinkedHashMap<String,Integer> sortedByValue = myMap.entrySet()
+                .stream()
+                .sorted(Map.Entry.comparingByValue())
+                .collect(Collectors
+                        .toMap(Map.Entry::getKey,
+                                Map.Entry::getValue,
+                                (e1,e2)->e1,
+                                LinkedHashMap::new));
+
+       sortedByValue.forEach( (key,value) ->
+                       System.out.println(key +"-"+value)
+               );
+ ```
+
+
+
+
 
    
 
