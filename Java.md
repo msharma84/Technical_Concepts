@@ -796,7 +796,7 @@ Predicate Functional Interface - This functional interface used for conditional 
  -  Sort a Map according to the values
 
    ```
-     Map<String,Integer> myMap = new HashMap<>();
+        Map<String,Integer> myMap = new HashMap<>();
         myMap.put("A",10);
         myMap.put("B",60);
         myMap.put("C",20);
@@ -817,6 +817,24 @@ Predicate Functional Interface - This functional interface used for conditional 
                        System.out.println(key +"-"+value)
                );
    ```
+ - Repeated character in a string
+
+   ```
+     String s = "Hello World";
+     Character firstRepeated = s.chars()
+                .mapToObj(ch -> (char)ch)
+               .filter(ch ->ch !=' ')
+                .collect(Collectors.groupingBy(ch ->ch,
+                        Collectors.counting()))
+                .entrySet()
+                .stream()
+                .filter(entry -> entry.getValue()>1).findFirst()
+                .get()
+                .getKey();
+
+      System.out.println("First Non Repeated Character - "+firstRepeated);
+   ```
+    
 
 
 
