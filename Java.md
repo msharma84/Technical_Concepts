@@ -816,7 +816,7 @@ Predicate Functional Interface - This functional interface used for conditional 
        sortedByValue.forEach( (key,value) ->
                        System.out.println(key +"-"+value)
                );
-  ```
+   ```
 
 
 
