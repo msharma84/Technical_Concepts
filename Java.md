@@ -574,7 +574,7 @@ Predicate Functional Interface - This functional interface used for conditional 
 
 - How to get Transaction based on day using streams
 
-```
+  ```
      class Transaction{
 
          private String date;
@@ -618,16 +618,16 @@ Predicate Functional Interface - This functional interface used for conditional 
             System.out.println("Day :"+day +" wise Amount :"+amount);
         });
 
-```
+  ```
 - Moved all non-zero element to left and zeros to right of a list
   
-```
+  ```
   List<Integer> numbers = Arrays.asList(1,0,3,2,-1,0,6,0,0,8);
         List<Integer> movedZeros = Stream.concat(numbers.stream().filter(n -> n!= 0),
                         numbers.stream().filter(n -> n==0))
                         .collect(Collectors.toList());
         System.out.println(movedZeros);
-```
+  ```
   
 ## Advanced Level
 
@@ -766,7 +766,7 @@ Predicate Functional Interface - This functional interface used for conditional 
      }
    ```
 
- -   How do you find the most frequently occurring element in a list using streams
+ - How do you find the most frequently occurring element in a list using streams
 
    ```
      List<String> list = Arrays.asList("apple","banana","orange","apple","orange","mango");
@@ -781,7 +781,7 @@ Predicate Functional Interface - This functional interface used for conditional 
         });
    ```
 
-- Remove Vowel from a String
+ - Remove Vowel from a String
 
    ```
    String str = "Hello World";
@@ -791,10 +791,11 @@ Predicate Functional Interface - This functional interface used for conditional 
                 .collect(Collectors.joining());
 
    System.out.println("Removal of vowel : "+nonVowelString);
-   ``` 
--  Sort a Map according to the values
+   ```
+   
+ -  Sort a Map according to the values
 
-  ```
+   ```
      Map<String,Integer> myMap = new HashMap<>();
         myMap.put("A",10);
         myMap.put("B",60);
@@ -815,7 +816,7 @@ Predicate Functional Interface - This functional interface used for conditional 
        sortedByValue.forEach( (key,value) ->
                        System.out.println(key +"-"+value)
                );
- ```
+  ```
 
 
 
