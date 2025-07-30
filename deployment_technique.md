@@ -23,3 +23,11 @@ Consider a way to route new users by exploring several techniques:
  * Basing routing on the source IP range;
  * Releasing the application in specific geographic regions;
  * Using an application logic to unlock new features to specific users and groups. This logic is removed when the application goes live for the rest of the users.
+
+# Staged Release
+
+The staged release deployment strategy for microservices involves gradually releasing microservices to one environment at a time. For example, your development team should first release microservices to the testing environment and later to production.
+
+Don’t enable microservices in production until you know that they’re safe in a testing environment. The staged release strategy incrementally deploys each service. This ensures longer time between failures for each service than if they were simultaneously deployed.
+
+   
