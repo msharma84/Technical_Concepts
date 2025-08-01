@@ -90,10 +90,15 @@ d) **Native Interface:**
 e) **Native Method Libraries:**
 
 * This is where native libraries are stored. These libraries are often written in C and C++ and can be called by Java code using the Native Interface.
-f) Execution of Java Code:
+  
+f) **Execution of Java Code:**
 
-The JVM executes Java bytecode by fetching instructions, decoding them, and executing the corresponding operations.
-The execution engine interacts with the runtime data areas and controls the flow.
-g) Garbage Collection: The JVM automatically manages memory, including garbage collection, to free up memory occupied by objects no longer referenced.
+* The JVM executes Java bytecode by fetching instructions, decoding them, and executing the corresponding operations.
+* The execution engine interacts with the runtime data areas and controls the flow.
 
-h) Java Native Interface (JNI): It allows Java code to call native code and vice versa, enabling interaction with platform-specific libraries.
+g) **Garbage Collection:**
+
+* The JVM automatically manages memory, including garbage collection, to free up memory occupied by objects no longer referenced.
+
+h) **Java Native Interface (JNI):**
+* It allows Java code to call native code and vice versa, enabling interaction with platform-specific libraries.
