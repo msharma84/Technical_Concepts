@@ -44,66 +44,66 @@
 ## Thread.join()
   
   * The join method allows one thread to wait for the completion of another thread.
-	* When we invoke the join() on a thread, the calling thread goes into a waiting state. It remains in the waiting state until the referenced thread terminates.
-	* The join method will keep waiting if the referenced thread is blocked which can become an issue as the calling thread will become non-responsive. Java provided two overloaded version of join() that takes timeout period.
-	* Join throws InterruptedException if the reference thread is interrupted.
-	* If the referenced thread unable to start or already terminated join will return immediately.
+  * When we invoke the join() on a thread, the calling thread goes into a waiting state. It remains in the waiting state until the referenced thread terminates.
+  * The join method will keep waiting if the referenced thread is blocked which can become an issue as the calling thread will become non-responsive. Java provided two overloaded version of join() that takes timeout period.
+  * Join throws InterruptedException if the reference thread is interrupted.
+  * If the referenced thread unable to start or already terminated join will return immediately.
 
 ## Synchronized Block / Method / Variable
 
   * Synchronization in Java guarantees that no two threads can execute a synchronized method, which requires same lock, simultaneously or concurrently.
-	* synchronized keyword can be used only with methods and code blocks. These methods or blocks can be static or non-static both.
-	* When ever a thread enters into Java synchronized method or block it acquires a lock and whenever it leaves synchronized method or block it releases the lock. Lock is released even if thread leaves synchronized method after completion or due to any Error or Exception.
-	* Java synchronized keyword is re-entrant in nature it means if a synchronized method calls another synchronized method which requires same lock then current thread which is holding lock can enter into that method without acquiring lock.
-	* Java synchronization will throw NullPointerException if object used in synchronized block is null. 
-	* Synchronized methods in Java put a performance cost on your application. So use synchronization when it is absolutely required. Also, consider using synchronized code blocks for synchronizing only critical section of your code.
-	* It’s possible that both static synchronized and non static synchronized method can run simultaneously or concurrently because they lock on different object.
-	* According to the Java language specification you can not use synchronized keyword with constructor. It is illegal and result in compilation error.
-	* Do not synchronize on non final field on synchronized block in Java. because reference of non final field may change any time and then different thread might synchronizing on different objects i.e. no synchronization at all.
-	* Do not use String literals because they might be referenced else where in the application and can cause deadlock. String objects created with new keyword can be used safely. But as a best practice, create a new private scoped Object instance OR lock on the shared variable itself which we want to protect.
+  * synchronized keyword can be used only with methods and code blocks. These methods or blocks can be static or non-static both.
+  * When ever a thread enters into Java synchronized method or block it acquires a lock and whenever it leaves synchronized method or block it releases the lock. Lock is released even if thread leaves synchronized method after completion or due to any Error or Exception.
+  * Java synchronized keyword is re-entrant in nature it means if a synchronized method calls another synchronized method which requires same lock then current thread which is holding lock can enter into that method without acquiring lock.
+  * Java synchronization will throw NullPointerException if object used in synchronized block is null. 
+  * Synchronized methods in Java put a performance cost on your application. So use synchronization when it is absolutely required. Also, consider using synchronized code blocks for synchronizing only critical section of your code.
+  * It’s possible that both static synchronized and non static synchronized method can run simultaneously or concurrently because they lock on different object.
+  * According to the Java language specification you can not use synchronized keyword with constructor. It is illegal and result in compilation error.
+  * Do not synchronize on non final field on synchronized block in Java. because reference of non final field may change any time and then different thread might synchronizing on different objects i.e. no synchronization at all.
+  * Do not use String literals because they might be referenced else where in the application and can cause deadlock. String objects created with new keyword can be used safely. But as a best practice, create a new private scoped Object instance OR lock on the shared variable itself which we want to protect.
 
 ## Limitations of Synchronized
 
   * Only one thread can enter a synchronized block at a time.
-	* There is no gurrantee about the sequence in which waiting threads gets access to the synchronized block.
+  * There is no gurrantee about the sequence in which waiting threads gets access to the synchronized block.
 
 ## Reentrant Locks 
 
   * ReentrantLock in Java is added on java.util.concurrent package in Java 1.5 along with other concurrent utilities like CountDownLatch, Executors and CyclicBarrier.
-	* ReentrantLock is a concrete implementation of Lock interface provided in Java concurrency package from Java 1.5 onwards.
-	* Reentrant Locks are provided in Java to provide synchronization with greater flexibility.
-	* The code which manipulates the shared resource is surrounded by calls to lock and unlock method. This gives a lock to the current working thread and blocks all other threads which are trying to take a lock on the shared resource.
-	* A ReentrantLock allow threads to enter into lock on a resource more than once. When the thread first enters into lock, a hold count is set to one. Before unlocking the thread can re-enter into lock again and every time hold count is incremented by one. For every unlock request, hold count is decremented by one and when hold count is 0, the resource is unlocked.
-	* Fairness parameter is provided while creating instance of ReentrantLock in constructor.
-	* ReentrantLock provides same visibility and ordering guarantee, provided by implicitly locking, which means, unlock() happens before another thread get lock().
-	* If you forget to call the unlock() method in the finally block, it will lead to bugs in the program. Make sure that the lock is released before the thread exits.
-	* The fairness parameter used to construct the lock object decreases the throughput of the program.
+  * ReentrantLock is a concrete implementation of Lock interface provided in Java concurrency package from Java 1.5 onwards.
+  * Reentrant Locks are provided in Java to provide synchronization with greater flexibility.
+  * The code which manipulates the shared resource is surrounded by calls to lock and unlock method. This gives a lock to the current working thread and blocks all other threads which are trying to take a lock on the shared resource.
+  * A ReentrantLock allow threads to enter into lock on a resource more than once. When the thread first enters into lock, a hold count is set to one. Before unlocking the thread can re-enter into lock again and every time hold count is incremented by one. For every unlock request, hold count is decremented by one and when hold count is 0, the resource is unlocked.
+  * Fairness parameter is provided while creating instance of ReentrantLock in constructor.
+  * ReentrantLock provides same visibility and ordering guarantee, provided by implicitly locking, which means, unlock() happens before another thread get lock().
+  * If you forget to call the unlock() method in the finally block, it will lead to bugs in the program. Make sure that the lock is released before the thread exits.
+  * The fairness parameter used to construct the lock object decreases the throughput of the program.
 
 ## Difference between ReentrantLock and synchronized keyword in Java
 
  * We can achieve thread synchronization in Java by using the ‘synchronized’ keyword. While it provides a certain basic synchronization, the synchronized keyword is quite rigid in its use. e.g, a thread can take a lock only once. Synchronized blocks don’t offer any mechanism of a waiting queue and after the exit of one thread, any thread can take the lock. This could lead to starvation of resources for some other thread for a very long period of time. ReentrantLock provides a method called lockInterruptibly(), which can be used to interrupt thread when it is waiting for lock. Similarly tryLock() with timeout can be used to timeout if lock is not available in certain time period.
-	* Fairness property provides lock to longest waiting thread, in case of contention. synchronized keyword doesn’t support fairness. Any thread can acquire lock once released, no preference can be specified. ReentrantLock fair by specifying fairness property, while creating instance of ReentrantLock.
-	* ReentrantLock provides convenient tryLock() method, which acquires lock only if its available or not held by any other thread. This reduce blocking of thread waiting for lock in Java application. This is not possible in case of synchronized keyword.
-	* ReentrantLock also provides convenient method to get List of all threads waiting for lock. We can create different conditions for Lock and different thread can await() for different conditions.
-	* Synchronization code is much cleaner and easy to maintain whereas with Lock we are forced to have try-finally block to make sure Lock is released even if some exception is thrown between lock() and unlock() method calls.
-	* synchronization blocks or methods can cover only one method whereas we can acquire the lock in one method and release it in another method with Lock API.
+ * Fairness property provides lock to longest waiting thread, in case of contention. synchronized keyword doesn’t support fairness. Any thread can acquire lock once released, no preference can be specified. ReentrantLock fair by specifying fairness property, while creating instance of ReentrantLock.
+ * ReentrantLock provides convenient tryLock() method, which acquires lock only if its available or not held by any other thread. This reduce blocking of thread waiting for lock in Java application. This is not possible in case of synchronized keyword.
+ * ReentrantLock also provides convenient method to get List of all threads waiting for lock. We can create different conditions for Lock and different thread can await() for different conditions.
+ * Synchronization code is much cleaner and easy to maintain whereas with Lock we are forced to have try-finally block to make sure Lock is released even if some exception is thrown between lock() and unlock() method calls.
+ * synchronization blocks or methods can cover only one method whereas we can acquire the lock in one method and release it in another method with Lock API.
 
 ## CyclicBarrier
 
   * Reusability : Unlike other synchronization aids like CountDownLatch, a CyclicBarrier can be reset and used again after all threads have been released.
-	* Barrier Action: Optionally, you can specify a barrier action that is executed once all threads reach the barrier.
-	* Flexibility: It is useful in scenarios where multiple threads need to wait for each other to complete a phase before proceeding to the next.
+  * Barrier Action: Optionally, you can specify a barrier action that is executed once all threads reach the barrier.
+  * Flexibility: It is useful in scenarios where multiple threads need to wait for each other to complete a phase before proceeding to the next.
 
 ## How CyclicBarrier works 
 
   * Initialization: A CyclicBarrier is initialized with a number of parties (threads) that need to wait at the barrier.
-	* Waiting: Each thread calls the await() method on the barrier.
-	* Release: When the last thread reaches the barrier, all waiting threads are released, and the optional barrier action (if provided) is executed.
-	* Reuse: The barrier is reset and can be used again for another cycle of waiting.
+  * Waiting: Each thread calls the await() method on the barrier.
+  * Release: When the last thread reaches the barrier, all waiting threads are released, and the optional barrier action (if provided) is executed.
+  * Reuse: The barrier is reset and can be used again for another cycle of waiting.
 
 ## Use Cases which are used in CyclicBarrier
 
   * Batch Processing: When processing data in batches, threads can use a CyclicBarrier to synchronize at the end of each batch.
-	* Parallel Algorithms: In parallel algorithms, threads often need to synchronize after completing certain phases of computation.
+  * Parallel Algorithms: In parallel algorithms, threads often need to synchronize after completing certain phases of computation.
 
 
