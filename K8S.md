@@ -49,7 +49,7 @@ Single instance of an application in k8s, which consists of either a single cont
 that are tightly coupled and share resources. It runs on a single node and represents a unit of deployment in k8s.
 
 1. Pods are atomic, building blocks of k8s.
-2. A Pod can only run on a single node at a given time
+2. Pod can only run on a single node at a given time
 3. Pod is the unit of scaling in k8s
 4. Each Pod is assigned a unique IP address. Containers inside a Pod can communicate with one another using localhost
 5. All containers in the Pod can access the shared volumes, allowing those container to share data
