@@ -1,7 +1,7 @@
 # Points to ponder :
 	
   * local variables are never shared betweeen threads
-	* InterruptedExceptions should never be ignored in the code, and simply logging the exception counts in this case as "ignoring". The throwing of the InterruptedException clears the interrupted state of the Thread, so if the exception is not handled properly the fact that the thread was interrupted will be lost. Instead, InterruptedExceptions should either be rethrown - immediately or after cleaning up the method's state - or the thread should be re-interrupted by calling Thread.interrupt() even if this is supposed to be a single-threaded application. Any other course of action risks delaying thread shutdown and loses the information that the thread was interrupted - probably without finishing its task.
+  * InterruptedExceptions should never be ignored in the code, and simply logging the exception counts in this case as "ignoring". The throwing of the InterruptedException clears the interrupted state of the Thread, so if the exception is not handled properly the fact that the thread was interrupted will be lost. Instead, InterruptedExceptions should either be rethrown - immediately or after cleaning up the method's state - or the thread should be re-interrupted by calling Thread.interrupt() even if this is supposed to be a single-threaded application. Any other course of action risks delaying thread shutdown and loses the information that the thread was interrupted - probably without finishing its task.
  * switching between threads of the same process are much faster (shorter context switches)
  * volatile is generally used for boolean flag values containing true|false values, for integer and long counters use AtomicInteger and AtomicLong if we incrementing these values or decreasing it.
  * 1 Java Thread = 1 OS Thread
@@ -11,31 +11,31 @@
 ##  **Java Thread Benefits**
 
   * Java Thread are lightweight as compared to processes, it takes less time and resource to create a thread.
-	* Thread shares their parent process data and code.
-	* Context switching between threads is usually less expensive than between processes.
-	* Thread intercommunication is relatively easy than process communication.
-	* Better CPU Utilization.
-	* Better IO Utilization.
+  * Thread shares their parent process data and code.
+  * Context switching between threads is usually less expensive than between processes.
+  * Thread intercommunication is relatively easy than process communication.
+  * Better CPU Utilization.
+  * Better IO Utilization.
 
 ## Concurrency-vs-Parallelism ##
 
   * Concurrency is about dealing with lots of things at once. Parallelism is about doing lots of things at once.
-	* A system is said to be concurrent if it can support two or more actions in progress at the same time. A system is said to be parallel if it can support two or more actions executing simultaneously.
-	* Concurrency means that an application is making progress on more than one task at the same time (concurrently). Well, if the computer only has one CPU the application may not make progress on more than one task at exactly the same time, but more than one task is being processed at a time inside the application. It does not completely finish one task before it begins the next.
-	* Parallelism means that an application splits its tasks up into smaller subtasks which can be processed in parallel, for instance on multiple CPUs at the exact same time.Parallelism does not require two tasks to exist. It literally physically run parts of tasks OR multiple tasks, at the same time using the multi-core infrastructure of CPU, by assigning one core to each task or sub-task.
-	* Parallelism requires hardware with multiple processing units, essentially. In single-core CPU, you may get concurrency but NOT parallelism. Parallelism is a specific kind of concurrency where tasks are really executed simultaneously.
-	* An application can be concurrent — but not parallel, which means that it processes more than one task at the same time, but no two tasks are executing at the same time instant.
-	* An application can be parallel — but not concurrent, which means that it processes multiple sub-tasks of a task in multi-core CPU at the same time.
-	* An application can be neither parallel — nor concurrent, which means that it processes all tasks one at a time, sequentially.
-	* An application can be both parallel — and concurrent, which means that it processes multiple tasks concurrently in multi-core CPU at the same time.
-	* The wait(), notify() and notifyAll() methods should only be called in syncronized contexts.
+  * A system is said to be concurrent if it can support two or more actions in progress at the same time. A system is said to be parallel if it can support two or more actions executing simultaneously.
+  * Concurrency means that an application is making progress on more than one task at the same time (concurrently). Well, if the computer only has one CPU the application may not make progress on more than one task at exactly the same time, but more than one task is being processed at a time inside the application. It does not completely finish one task before it begins the next.
+  * Parallelism means that an application splits its tasks up into smaller subtasks which can be processed in parallel, for instance on multiple CPUs at the exact same time.Parallelism does not require two tasks to exist. It literally physically run parts of tasks OR multiple tasks, at the same time using the multi-core infrastructure of CPU, by assigning one core to each task or sub-task.
+  * Parallelism requires hardware with multiple processing units, essentially. In single-core CPU, you may get concurrency but NOT parallelism. Parallelism is a specific kind of concurrency where tasks are really executed simultaneously.
+  * An application can be concurrent — but not parallel, which means that it processes more than one task at the same time, but no two tasks are executing at the same time instant.
+  * An application can be parallel — but not concurrent, which means that it processes multiple sub-tasks of a task in multi-core CPU at the same time.
+  * An application can be neither parallel — nor concurrent, which means that it processes all tasks one at a time, sequentially.
+  * An application can be both parallel — and concurrent, which means that it processes multiple tasks concurrently in multi-core CPU at the same time.
+  * The wait(), notify() and notifyAll() methods should only be called in syncronized contexts.
 
 ## Java provides ways to create a thread programmatically
 
   1. Implementing the java.lang.Runnable interface.
-	2. Extending the java.lang.Thread class.
-	3. Anonymous Runnable interface implementation.
-	4. Lamda Expression.
+  2. Extending the java.lang.Thread class.
+  3. Anonymous Runnable interface implementation.
+  4. Lamda Expression.
 
 ## Java happens before guarantee
 
