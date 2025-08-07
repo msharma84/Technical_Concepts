@@ -67,6 +67,13 @@
   * Only one thread can enter a synchronized block at a time.
   * There is no gurrantee about the sequence in which waiting threads gets access to the synchronized block.
 
+## Deadlock : Occur when four condition are met simultanenously
+
+  * **Mutual Exclusion:** Only one thread can access a resource at a time.
+  * **Hold and Wait:** A thread holding atleast one resource is waiting for acquire additional resources held by other threads.
+  * **No Preemption:** Resources cannot be forcibly taken from threads holding them.
+  * **Cicular Wait:** A set of thread is waiting for each other in a circular chain.
+    
 ## Reentrant Locks 
 
   * ReentrantLock in Java is added on java.util.concurrent package in Java 1.5 along with other concurrent utilities like CountDownLatch, Executors and CyclicBarrier.
