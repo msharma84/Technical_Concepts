@@ -25,6 +25,13 @@ Kafka is fast, reliable, scalable, durable, fault-tolerant and distributed by de
  * each partitions is ordered <br>
  * each message within a partition gets an incremental id, called an offset <br> </div>
 
+**Partitions** <br><div>
+* Each partitions ia an ordered, immutable sequence of records <br>
+* Each record is assigned a sequential number called **offet** <br>
+* Each partitions are independent of each other <br>
+* Ordering is guaranteed only at partition level <br>
+* Partitions continuosly grows as new records are produced <br> </div>
+
  **Broker** <br><div>
  * a kafka cluster is composed of multiple brokers <br>
  * each broker is identified with it's ID (integer) <br>
