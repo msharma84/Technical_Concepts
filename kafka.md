@@ -140,6 +140,10 @@ kafka-console-consumer.bat --bootstrap-server localhost:9092,localhost:9093,loca
 ```
 kafka-console-producer.bat --broker-list localhost:9092 --topic test-topic
 ```
+### Get Details of all Topic in a server
+```
+kafka-topics --bootstrap-server localhost:9092 --list
+```
 ### Get Details of Topic
 ```
 kafka-topics.bat --zookeeper localhost:2181 --topic test-topic --describe
