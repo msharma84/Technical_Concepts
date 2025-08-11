@@ -22,8 +22,6 @@ Kafka is fast, reliable, scalable, durable, fault-tolerant and distributed by de
  * you can have as many as topic you want <br>
  * a topic is identified by it's name <br>
  * topics can splits in partitions <br>
- * each partitions is ordered <br>
- * each message within a partition gets an incremental id, called an offset <br> </div>
 
 **Partitions** <br><div>
 * Each partitions ia an ordered, immutable sequence of records <br>
