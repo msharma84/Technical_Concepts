@@ -6,10 +6,10 @@ Advantage :
 
 Why Lamdas ?
 
-Enables functional programming
-Readable and concise code
-Easier to use API and Libraries
-Enables support parallel programming
+Enables functional programming.
+Readable and concise code.
+Easier to use API and Libraries.
+Enables support parallel programming.
 
 Lamdas are function in isolation, they are not being part of a particular class 
 
