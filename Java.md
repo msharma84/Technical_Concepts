@@ -7,13 +7,16 @@ Advantage :
 Why Lamdas ?
 
 Enables functional programming.
+
 Readable and concise code.
+
 Easier to use API and Libraries.
+
 Enables support parallel programming.
 
-Lamdas are function in isolation, they are not being part of a particular class 
+Lamdas are function in isolation, they are not being part of a particular class.
 
-Stream bring functional programming to Java, and are supported started in Java8
+Stream bring functional programming to Java, and are supported started in Java 8.
 
 Advantages of Stream : 
 1.   Make heavy use of Lamda expression
