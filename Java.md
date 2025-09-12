@@ -533,15 +533,6 @@ Predicate Functional Interface - This functional interface used for conditional 
    wordLengthMap.forEach((word, length) -> System.out.println(word +" : "+length));
    ```
 
-- How do you find the longest word in a list using streams
-  
-  ```
-  List<String> words = Arrays.asList("apple","banana","orange","mango","pineapple");
-   Optional<String> longest =  words.stream()
-                .max(Comparator.comparingInt(String::length));
-   longest.ifPresent(word -> System.out.println("Longest Word : "+word));
-  ```
-
 - How do you merge two maps using streams
   
   ```
@@ -717,7 +708,7 @@ Predicate Functional Interface - This functional interface used for conditional 
          }
      }
   ```
-- How do you sort a list of objects based on multiple fields using streamsy
+- How do you sort a list of objects based on multiple fields using streams
 
    ```
    List<Person> personList = new ArrayList<>();
