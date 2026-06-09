@@ -121,7 +121,7 @@ kafka-server-start.bat ..\..\config\server.properties
 ```
 kafka-topics.bat --create --zookeeper localhost:2181 --replication-factor 1 --partitions 4 --topic test-topic
 ```
-### Start producing topic through producer console
+### Start consumer topic through consumer console
 #### Without Key :
 ```
 kafka-console-consumer.bat --bootstrap-server localhost:9092 --topic test-topic --from-beginning
@@ -134,7 +134,7 @@ kafka-console-consumer.bat --bootstrap-server localhost:9092 --topic test-topic 
 ```
 kafka-console-consumer.bat --bootstrap-server localhost:9092,localhost:9093,localhost:9094 --topic library-events --from-beginning
 ```
-### Publish to the Kafka Topic via Console
+### Publish to the Kafka Topic via producer console
 ```
 kafka-console-producer.bat --broker-list localhost:9092 --topic test-topic
 ```
