@@ -622,6 +622,20 @@ Predicate Functional Interface - This functional interface used for conditional 
                         .collect(Collectors.toList());
         System.out.println(movedZeros);
   ```
+
+- Flattens a list using flatMap()
+  
+  ```
+      List<List<Integer>> nestedList = Arrays.asList(
+                Arrays.asList(1, 2),
+                Arrays.asList(3, 4),
+                Arrays.asList(5, 6)
+        );
+
+        List<Integer> collect = nestedList.stream().flatMap(List::stream).collect(Collectors.toList());
+        System.out.println(collect);
+  ```
+  
   
 ## Advanced Level
 
