@@ -842,6 +842,22 @@ Predicate Functional Interface - This functional interface used for conditional 
 
       System.out.println("First Non Repeated Character - "+firstRepeated);
    ```
+
+- Find the First Non-Repeated Character in a String
+
+  ```
+     String input = "swiss";
+        Character firstNonRepeated = input.chars().mapToObj(c -> (char) c)
+                .collect(Collectors.groupingBy(Function.identity(), LinkedHashMap::new, Collectors.counting()))
+                .entrySet()
+                .stream()
+                .filter(entry -> entry.getValue() == 1)
+                .map(Map.Entry::getKey)
+                .findFirst().orElse(null);
+
+        System.out.println(firstNonRepeated);
+   ```
+  
 - Given List<Integer>, Find Pair of numbers whose sum is equal to given target number.
 
    ```
