@@ -828,7 +828,18 @@ Predicate Functional Interface - This functional interface used for conditional 
 
       System.out.println("First Non Repeated Character - "+firstRepeated);
    ```
-    
+- Given List<Integer>, Find Pair of numbers whose sum is equal to given target number.
+
+   ```
+     List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6);
+     int target = 7;
+
+     List<List<Integer>> pairs = numbers.stream()
+                 .flatMap(num1 -> numbers.stream()
+                     .filter(num2 -> num1 + num2 == target)
+                     .map(num2 -> Arrays.asList(num1, num2)))
+                 .collect(Collectors.toList());
+   ```
 
 
 
