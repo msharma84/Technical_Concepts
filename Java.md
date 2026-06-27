@@ -870,6 +870,21 @@ Predicate Functional Interface - This functional interface used for conditional 
                      .map(num2 -> Arrays.asList(num1, num2)))
                  .collect(Collectors.toList());
    ```
+- Find Anagram from the list of words
+
+  ```
+   List<String> words = Arrays.asList("listen", "silent", "enlist", "rat", "tar", "god", "dog", "evil", "vile", "veil");
+        Map<String, List<String>> anagrams =  words.stream()
+                .collect(Collectors.groupingBy(word -> {
+                    char[] charArray = word.toCharArray();
+                    Arrays.sort(charArray); // Sort the characters
+                    return new String(charArray); // Return the sorted string
+                }));
+
+        anagrams.values().stream().filter(group -> group.size()>1).forEach(System.out::println);
+  ```
+
+
 
 
 
