@@ -811,7 +811,7 @@ Predicate Functional Interface - This functional interface used for conditional 
                        System.out.println(key +"-"+value)
                );
    ```
- - Repeated character in a string
+- Repeated character in a string
 
    ```
      String s = "Hello World";
